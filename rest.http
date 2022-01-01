@@ -1,0 +1,25 @@
+@baseUrl = http://localhost:3000/api/genres
+
+{{baseUrl}}
+
+###
+
+{{baseUrl}}/1
+
+###
+
+POST {{baseUrl}}
+content-type: application/json
+
+{ "name": "new genre" }
+
+###
+
+PUT {{baseUrl}}/1
+content-type: application/json
+
+{ "name": "new genre" }
+
+###
+
+DELETE {{baseUrl}}/2
