@@ -10,6 +10,7 @@
 
 POST {{baseUrl}}
 content-type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjA1Mzc2OTM1YjM1N2I1ZmE4OTBiZTkiLCJpYXQiOjE2NDQ1MDkwMzN9.ldnQSfpDSjpLcHqfmnK9tLqy6FISEpj53nLC-np6GWs
 
 { "name": "new genre" }
 
@@ -23,3 +24,14 @@ content-type: application/json
 ###
 
 DELETE {{baseUrl}}/2
+
+###
+
+POST http://localhost:3000/api/users
+content-type: application/json
+
+{
+  "name": "iLia Railian",
+  "email": "raylyanway@gmail.com",
+  "password": "12345"
+}
