@@ -1,5 +1,6 @@
-const Joi = require("joi");
+import Joi from "joi";
+import joiObjectid from "joi-objectid";
 
-module.exports = function () {
-  Joi.objectId = require("joi-objectid")(Joi);
+export const validation = () => {
+  Joi.objectId = joiObjectid(Joi);
 };

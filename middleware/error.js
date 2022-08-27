@@ -1,6 +1,6 @@
-const { logger } = require("../startup/logging");
+import { logger } from "../startup/logging.js";
 
-module.exports = function (err, req, res, next) {
+export default function (err, req, res, next) {
   logger.error(err.message, err);
 
   // error
@@ -11,4 +11,4 @@ module.exports = function (err, req, res, next) {
   // silly
 
   res.status(500).send("Something failed.");
-};
+}

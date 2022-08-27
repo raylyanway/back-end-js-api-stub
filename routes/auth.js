@@ -1,9 +1,9 @@
-const Joi = require("joi");
-const bcrypt = require("bcrypt");
-const _ = require("lodash");
-const { User } = require("../models/user");
-const mongoose = require("mongoose");
-const express = require("express");
+import Joi from "joi";
+import bcrypt from "bcrypt";
+// import _ from "lodash";
+import { User } from "../models/user.js";
+// import mongoose from "mongoose";
+import express from "express";
 const router = express.Router();
 
 router.post("/", async (req, res) => {
@@ -29,4 +29,4 @@ function validate(req) {
   return schema.validate(req);
 }
 
-module.exports = router;
+export default router;

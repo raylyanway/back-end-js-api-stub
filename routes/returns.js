@@ -1,9 +1,9 @@
-const Joi = require("joi");
-const validate = require("../middleware/validate");
-const { Rental } = require("../models/rental");
-const { Movie } = require("../models/movie");
-const auth = require("../middleware/auth");
-const express = require("express");
+import Joi from "joi";
+import validate from "../middleware/validate.js";
+import { Rental } from "../models/rental.js";
+import { Movie } from "../models/movie.js";
+import auth from "../middleware/auth.js";
+import express from "express";
 const router = express.Router();
 
 router.post("/", [auth, validate(validateReturn)], async (req, res) => {
@@ -36,4 +36,4 @@ function validateReturn(req) {
   return schema.validate(req);
 }
 
-module.exports = router;
+export default router;

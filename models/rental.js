@@ -1,6 +1,6 @@
-const Joi = require("joi");
-const mongoose = require("mongoose");
-const moment = require("moment");
+import Joi from "joi";
+import mongoose from "mongoose";
+import moment from "moment";
 
 const rentalSchema = new mongoose.Schema({
   customer: {
@@ -70,16 +70,13 @@ rentalSchema.methods.return = function () {
   this.rentalFee = rentalDays * this.movie.dailyRentalRate;
 };
 
-const Rental = mongoose.model("Rental", rentalSchema);
+export const Rental = mongoose.model("Rental", rentalSchema);
 
-function validateRental(rental) {
+export const validate = (rental) => {
   const schema = Joi.object({
     customerId: Joi.objectId().required(),
     movieId: Joi.objectId().required(),
   });
 
   return schema.validate(rental);
-}
-
-exports.Rental = Rental;
-exports.validate = validateRental;
+};
