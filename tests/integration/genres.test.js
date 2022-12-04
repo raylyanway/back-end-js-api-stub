@@ -1,25 +1,28 @@
-const request = require("supertest");
-const { Genre } = require("../../models/genre");
-const { User } = require("../../models/user");
-const mongoose = require("mongoose");
+import request from "supertest";
+import { Genre } from "../../models/genre";
+import { User } from "../../models/user";
+import mongoose from "mongoose";
 
 describe("/api/genres", () => {
   let server;
 
-  beforeEach(() => {
-    server = require("../../index");
+  beforeEach(async () => {
+    const appIndex = await import("../../index");
+    await Genre.deleteMany();
+    server = appIndex.server;
   });
   afterEach(async () => {
     await server.close();
-    await Genre.deleteMany({});
   });
 
   describe("GET /", () => {
-    it("should return all genres", async () => {
+    beforeEach(async () => {
       const genres = [{ name: "genre1" }, { name: "genre2" }];
 
       await Genre.collection.insertMany(genres);
+    });
 
+    it("should return all genres", async () => {
       const res = await request(server).get("/api/genres");
 
       expect(res.status).toBe(200);

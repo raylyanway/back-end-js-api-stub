@@ -1,16 +1,17 @@
-const { User } = require("../../models/user");
-const { Genre } = require("../../models/genre");
-const request = require("supertest");
+import { User } from "../../models/user";
+import { Genre } from "../../models/genre";
+import request from "supertest";
 
 describe("auth middleware", () => {
   let server;
 
-  beforeEach(() => {
-    server = require("../../index");
+  beforeEach(async () => {
+    const appIndex = await import("../../index");
+    server = appIndex.server;
   });
   afterEach(async () => {
-    await Genre.deleteMany({});
     await server.close();
+    await Genre.deleteMany({});
   });
 
   let token;

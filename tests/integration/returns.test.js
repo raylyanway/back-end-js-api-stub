@@ -1,9 +1,9 @@
-const moment = require("moment");
-const request = require("supertest");
-const { Rental } = require("../../models/rental");
-const { Movie } = require("../../models/movie");
-const { User } = require("../../models/user");
-const mongoose = require("mongoose");
+import moment from "moment";
+import request from "supertest";
+import { Rental } from "../../models/rental";
+import { Movie } from "../../models/movie";
+import { User } from "../../models/user";
+import mongoose from "mongoose";
 
 describe("/api/returns", () => {
   let server;
@@ -21,7 +21,8 @@ describe("/api/returns", () => {
   };
 
   beforeEach(async () => {
-    server = require("../../index");
+    const appIndex = await import("../../index");
+    server = appIndex.server;
 
     customerId = mongoose.Types.ObjectId();
     movieId = mongoose.Types.ObjectId();
@@ -105,7 +106,7 @@ describe("/api/returns", () => {
   });
 
   it("should set the returnDate if input is valid", async () => {
-    const res = await exec();
+    await exec();
 
     const rentalInDb = await Rental.findById(rental._id);
     const diff = new Date() - rentalInDb.dateReturned;
@@ -116,14 +117,14 @@ describe("/api/returns", () => {
     rental.dateOut = moment().add(-7, "days").toDate();
     await rental.save();
 
-    const res = await exec();
+    await exec();
 
     const rentalInDb = await Rental.findById(rental._id);
     expect(rentalInDb.rentalFee).toBe(14);
   });
 
   it("should increase the movie stock if input is valid", async () => {
-    const res = await exec();
+    await exec();
 
     const movieInDb = await Movie.findById(movieId);
     expect(movieInDb.numberInStock).toBe(movie.numberInStock + 1);
@@ -132,7 +133,7 @@ describe("/api/returns", () => {
   it("should return the rental if input is valid", async () => {
     const res = await exec();
 
-    const rentalInDb = await Rental.findById(rental._id);
+    await Rental.findById(rental._id);
 
     expect(Object.keys(res.body)).toEqual(
       expect.arrayContaining([
