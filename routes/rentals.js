@@ -1,7 +1,7 @@
 import { Rental, validate } from "../models/rental.js";
 import { Movie } from "../models/movie.js";
 import { Customer } from "../models/customer.js";
-// import mongoose from 'mongoose';
+import mongoose from "mongoose";
 // import Fawn from 'fawn';
 import express from "express";
 const router = express.Router();
@@ -46,6 +46,15 @@ router.post("/", async (req, res) => {
     //     $inc: { numberInStock: -1 }
     //   })
     //   .run();
+    const session = await mongoose.startSession();
+    await session.withTransaction(async () => {
+      const result = await rental.save();
+      movie.numberInStock--;
+      movie.save();
+      res.send(result);
+    });
+
+    session.endSession();
 
     res.send(rental);
   } catch (ex) {
