@@ -4,5 +4,7 @@ import config from "config";
 
 export const db = () => {
   const db = config.get("db");
-  mongoose.connect(db).then(() => logger.info(`Connected to ${db}...`));
+  mongoose
+    .connect(db, { useUnifiedTopology: true })
+    .then(() => logger.info(`Connected to ${db}...`));
 };
