@@ -1,4 +1,3 @@
-// const winston = require("winston");
 import express from "express";
 import debug from "debug";
 import { logger } from "./startup/logging.js";
@@ -18,11 +17,7 @@ prod(app);
 const devDebug = debug("app:dev");
 devDebug("Dev is started");
 
-let server;
-
-if (process.env.NODE_ENV !== "test") {
-  const port = process.env.PORT || 3000;
-  server = app.listen(port, () => logger.info(`Listening on port ${port}...`));
-}
-
-export default server;
+const port = process.env.NODE_ENV === "test" ? 0 : process.env.PORT || 3000;
+export const server = app.listen(port, () =>
+  logger.info(`Listening on port ${port}...`)
+);

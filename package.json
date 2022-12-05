@@ -12,7 +12,7 @@
     "format": "npm run prettier:fix && npm run lint:fix",
     "test": "jest --watchAll --verbose",
     "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "start:dev": "nodemon --trace-warnings index.js"
   },
   "engines": {
     "node": "16.17.0"
@@ -21,6 +21,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.4",
+    "babel-jest": "^29.2.1",
     "debug": "^4.3.4",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
@@ -46,6 +49,6 @@
     "moment": "^2.29.1",
     "mongoose": "^6.2.1",
     "winston": "^3.5.1",
-    "winston-mongodb": "^5.0.7"
+    "winston-mongodb": "^5.1.0"
   }
 }
