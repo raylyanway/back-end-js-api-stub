@@ -1,18 +1,18 @@
 {
-  "name": "node-api",
-  "version": "1.0.0",
+  "name": "back-end-js-api-stub",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "format": "npm run prettier:fix && npm run lint:fix",
     "lint": "npx eslint src",
     "lint:fix": "npm run lint -- --fix",
     "prettier": "npx prettier src --check",
     "prettier:fix": "npm run prettier -- --write",
-    "format": "npm run prettier:fix && npm run lint:fix",
-    "test": "jest --watchAll --verbose",
     "start": "node index.js",
-    "start:dev": "nodemon --trace-warnings index.js"
+    "start:dev": "nodemon --trace-warnings index.js",
+    "test": "jest --watchAll --verbose"
   },
   "engines": {
     "node": "16.17.0"
@@ -26,11 +26,11 @@
     "babel-jest": "^29.2.1",
     "debug": "^4.3.4",
     "eslint": "^8.5.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-jest": "^26.1.0",
     "jest": "^27.5.1",
     "nodemon": "^2.0.19",
-    "prettier": "^2.5.1",
+    "prettier": "^2.8.4",
     "supertest": "^6.2.2"
   },
   "dependencies": {
