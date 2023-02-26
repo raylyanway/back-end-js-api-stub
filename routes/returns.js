@@ -1,9 +1,11 @@
-import Joi from "joi";
-import validate from "../middleware/validate.js";
-import { Rental } from "../models/rental.js";
-import { Movie } from "../models/movie.js";
-import auth from "../middleware/auth.js";
 import express from "express";
+import Joi from "joi";
+
+import auth from "../middleware/auth.js";
+import validate from "../middleware/validate.js";
+import { Movie } from "../models/movie.js";
+import { Rental } from "../models/rental.js";
+
 const router = express.Router();
 
 router.post("/", [auth, validate(validateReturn)], async (req, res) => {

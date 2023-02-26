@@ -1,9 +1,10 @@
-import validateObjectId from "../middleware/validateObjectId.js";
-import auth from "../middleware/auth.js";
-import admin from "../middleware/admin.js";
-import { Genre, validate } from "../models/genre.js";
 // import mongoose from "mongoose";
 import express from "express";
+
+import admin from "../middleware/admin.js";
+import auth from "../middleware/auth.js";
+import validateObjectId from "../middleware/validateObjectId.js";
+import { Genre, validate } from "../models/genre.js";
 
 const router = express.Router();
 

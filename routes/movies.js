@@ -1,7 +1,9 @@
-import { Movie, validate } from "../models/movie.js";
-import { Genre } from "../models/genre.js";
 // import mongoose from "mongoose";
 import express from "express";
+
+import { Genre } from "../models/genre.js";
+import { Movie, validate } from "../models/movie.js";
+
 const router = express.Router();
 
 router.get("/", async (req, res) => {

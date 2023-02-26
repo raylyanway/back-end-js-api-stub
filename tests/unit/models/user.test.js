@@ -1,7 +1,8 @@
-import { User } from "../../../models/user";
-import jwt from "jsonwebtoken";
 import config from "config";
+import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
+
+import { User } from "../../../models/user";
 
 describe("user.generateAuthToken", () => {
   it("should return a valid JWT", () => {

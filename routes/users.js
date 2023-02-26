@@ -1,11 +1,13 @@
-import auth from "../middleware/auth.js";
 // import jwt from "jsonwebtoken";
 // import config from "config";
 import bcrypt from "bcrypt";
-import _ from "lodash";
-import { User, validate } from "../models/user.js";
 // import mongoose from "mongoose";
 import express from "express";
+import _ from "lodash";
+
+import auth from "../middleware/auth.js";
+import { User, validate } from "../models/user.js";
+
 const router = express.Router();
 
 router.get("/me", auth, async (req, res) => {

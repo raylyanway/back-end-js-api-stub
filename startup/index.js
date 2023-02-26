@@ -1,8 +1,8 @@
-import { routes } from "./routes.js";
-import { db } from "./db.js";
 import { appConfig } from "./config.js";
-import { validation } from "./validation.js";
+import { db } from "./db.js";
 import { prod } from "./prod.js";
+import { routes } from "./routes.js";
+import { validation } from "./validation.js";
 
 export const startup = (app) => {
   routes(app);

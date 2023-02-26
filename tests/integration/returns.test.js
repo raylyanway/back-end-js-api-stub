@@ -1,9 +1,10 @@
 import moment from "moment";
-import request from "supertest";
-import { Rental } from "../../models/rental";
-import { Movie } from "../../models/movie";
-import { User } from "../../models/user";
 import mongoose from "mongoose";
+import request from "supertest";
+
+import { Movie } from "../../models/movie";
+import { Rental } from "../../models/rental";
+import { User } from "../../models/user";
 
 describe("/api/returns", () => {
   let server;

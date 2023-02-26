@@ -1,5 +1,6 @@
 import Joi from "joi";
 import mongoose from "mongoose";
+
 import { genreSchema } from "./genre.js";
 
 export const Movie = mongoose.model(

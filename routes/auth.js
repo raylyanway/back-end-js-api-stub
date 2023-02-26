@@ -1,9 +1,11 @@
-import Joi from "joi";
 import bcrypt from "bcrypt";
-// import _ from "lodash";
-import { User } from "../models/user.js";
 // import mongoose from "mongoose";
 import express from "express";
+import Joi from "joi";
+
+// import _ from "lodash";
+import { User } from "../models/user.js";
+
 const router = express.Router();
 
 router.post("/", async (req, res) => {

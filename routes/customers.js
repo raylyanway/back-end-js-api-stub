@@ -1,6 +1,8 @@
-import { Customer, validate } from "../models/customer.js";
 // import mongoose from "mongoose";
 import express from "express";
+
+import { Customer, validate } from "../models/customer.js";
+
 const router = express.Router();
 
 router.get("/", async (req, res) => {

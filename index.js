@@ -1,7 +1,8 @@
-import express from "express";
 import debug from "debug";
-import { logger } from "./startup/logging.js";
+import express from "express";
+
 import { startup } from "./startup/index.js";
+import { logger } from "./startup/logging.js";
 
 const app = express();
 startup(app);

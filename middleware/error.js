@@ -1,6 +1,6 @@
 import { logger } from "../startup/logging.js";
 
-export default function (err, req, res, next) {
+export default function (err, req, res) {
   logger.error(err.message, err);
 
   // error

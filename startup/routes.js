@@ -1,12 +1,13 @@
 import express from "express";
-import genres from "../routes/genres.js";
+
+import error from "../middleware/error.js";
+import auth from "../routes/auth.js";
 import customers from "../routes/customers.js";
+import genres from "../routes/genres.js";
 import movies from "../routes/movies.js";
 import rentals from "../routes/rentals.js";
-import users from "../routes/users.js";
-import auth from "../routes/auth.js";
 import returns from "../routes/returns.js";
-import error from "../middleware/error.js";
+import users from "../routes/users.js";
 
 export const routes = (app) => {
   app.use(express.json());

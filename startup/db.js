@@ -1,6 +1,7 @@
-import { logger } from "../startup/logging.js";
-import mongoose from "mongoose";
 import config from "config";
+import mongoose from "mongoose";
+
+import { logger } from "../startup/logging.js";
 
 export const db = () => {
   const db = config.get("db");

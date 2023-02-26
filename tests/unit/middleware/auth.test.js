@@ -1,6 +1,7 @@
-import { User } from "../../../models/user";
-import auth from "../../../middleware/auth";
 import mongoose from "mongoose";
+
+import auth from "../../../middleware/auth";
+import { User } from "../../../models/user";
 
 describe("auth middleware", () => {
   it("should populate req.user with the payload of a valid JWT", () => {

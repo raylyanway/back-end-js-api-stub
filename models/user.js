@@ -1,6 +1,6 @@
 import config from "config";
-import jwt from "jsonwebtoken";
 import Joi from "joi";
+import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({

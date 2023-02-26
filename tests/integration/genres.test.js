@@ -1,7 +1,8 @@
+import mongoose from "mongoose";
 import request from "supertest";
+
 import { Genre } from "../../models/genre";
 import { User } from "../../models/user";
-import mongoose from "mongoose";
 
 describe("/api/genres", () => {
   let server;

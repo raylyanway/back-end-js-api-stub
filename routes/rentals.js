@@ -1,9 +1,11 @@
-import { Rental, validate } from "../models/rental.js";
-import { Movie } from "../models/movie.js";
-import { Customer } from "../models/customer.js";
-import mongoose from "mongoose";
 // import Fawn from 'fawn';
 import express from "express";
+import mongoose from "mongoose";
+
+import { Customer } from "../models/customer.js";
+import { Movie } from "../models/movie.js";
+import { Rental, validate } from "../models/rental.js";
+
 const router = express.Router();
 
 // Fawn.init(mongoose);

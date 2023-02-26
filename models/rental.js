@@ -1,6 +1,6 @@
 import Joi from "joi";
-import mongoose from "mongoose";
 import moment from "moment";
+import mongoose from "mongoose";
 
 const rentalSchema = new mongoose.Schema({
   customer: {
