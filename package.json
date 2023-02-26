@@ -13,7 +13,8 @@
     "prettier:fix": "npm run prettier -- --write",
     "start": "node index.js",
     "start:dev": "nodemon --trace-warnings index.js",
-    "test": "jest --watchAll --verbose"
+    "test": "jest",
+    "test:watch": "jest --watchAll --verbose"
   },
   "engines": {
     "node": "16.17.0"
@@ -51,7 +52,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "mongoose": "^6.2.1",
+    "mongoose": "^6.10.0",
     "winston": "^3.5.1",
     "winston-mongodb": "^5.1.0"
   }
