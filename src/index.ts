@@ -1,10 +1,10 @@
 import debug from "debug";
 import express from "express";
 
-import { logger, startup } from "./startup";
+import { bootstrap, logger } from "./bootstrap";
 
 const app = express();
-startup(app);
+bootstrap(app);
 
 const devDebug = debug("app:dev");
 devDebug("Dev is started");

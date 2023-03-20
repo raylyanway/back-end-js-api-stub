@@ -1,7 +1,6 @@
 import { IncomingMessage, Server, ServerResponse } from "http";
 import request from "supertest";
 
-import { Genre } from "../../models/genre";
 import { User } from "../../models/user";
 
 describe("auth middleware", () => {
@@ -13,21 +12,16 @@ describe("auth middleware", () => {
   });
   afterEach(async () => {
     await server.close();
-    await Genre.deleteMany({});
   });
 
   let token: string;
 
   const exec = () => {
     return request(server)
-      .post("/api/genres")
+      .get("/api/users/me")
       .set("x-auth-token", token)
-      .send({ name: "genre1" });
+      .send({ _id: "6417a40e492b34edf3564520" });
   };
-
-  beforeEach(() => {
-    token = new User().generateAuthToken();
-  });
 
   it("should return 401 if no token is provided", async () => {
     token = "";
@@ -46,6 +40,8 @@ describe("auth middleware", () => {
   });
 
   it("should return 200 if token is valid", async () => {
+    token = new User().generateAuthToken();
+
     const res = await exec();
 
     expect(res.status).toBe(200);

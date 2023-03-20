@@ -7,7 +7,7 @@ import { routes } from "./routes";
 
 export { logger } from "./logging";
 
-export const startup = (app: Express) => {
+export const bootstrap = (app: Express) => {
   routes(app);
   db();
   config();

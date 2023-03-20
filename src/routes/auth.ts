@@ -1,9 +1,7 @@
 import bcrypt from "bcrypt";
-// import mongoose from "mongoose";
 import express, { Request } from "express";
 import Joi from "joi";
 
-// import _ from "lodash";
 import { User } from "../models/user";
 
 const router = express.Router();
