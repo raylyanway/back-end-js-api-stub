@@ -1,7 +1,7 @@
 import debug from "debug";
 import express from "express";
 
-import { logger,startup } from "./startup";
+import { logger, startup } from "./startup";
 
 const app = express();
 startup(app);
